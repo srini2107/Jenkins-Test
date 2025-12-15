@@ -11,4 +11,9 @@ public class TestJenkins {
     public String test() {
         return "Jenkins test successful!";
     }
+
+    @GetMapping("/test1")
+    public String test1() {
+        return "Jenkins test successful!";
+    }
 }
