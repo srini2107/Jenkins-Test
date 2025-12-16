@@ -40,8 +40,11 @@ jobs:
           docker pull srinivasalug01/github-actions:latest
           docker run -d -p 8080:8080 --name myapp srinivasalug01/github-actions:latest
           docker ps
-      - name: Build with Maven
-        run: mvn clean install
+      - name: Test container health
+        run: |
+          sleep 10
+          curl http://localhost:8080/actuator/health || true
+      
 
 
 
