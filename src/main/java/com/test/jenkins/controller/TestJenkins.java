@@ -7,14 +7,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TestJenkins {
 
-    @GetMapping("/test1")
-    public String test1() {
-        return "Jenkins test successful!";
-    }
+
 
     @GetMapping("/test")
     public String test() {
-        return "Jenkins test successful!";
+        return "Jenkins test successful!123";
     }
 
 }
