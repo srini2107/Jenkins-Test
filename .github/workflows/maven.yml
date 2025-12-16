@@ -21,4 +21,18 @@ jobs:
           cache: maven
       - name: Build with Maven
         run: mvn clean install
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v4
+        with:
+          image: srinivasalug01/github-actions
+          tags: latest
+          registry: docker.io
+          dockerfile: Dockerfile
+          username: ${{ docker_username }}
+          password: ${{ docker_password }}
+
+
+
+
+
 
