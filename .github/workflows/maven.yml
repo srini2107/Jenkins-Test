@@ -40,10 +40,12 @@ jobs:
           docker pull srinivasalug01/github-actions:latest
           docker run -d -p 8080:8080 --name myapp srinivasalug01/github-actions:latest
           docker ps
-      - name: Test container health
+      - name: Run container and test endpoints
         run: |
-          sleep 10
-          curl http://localhost:8080/actuator/health || true
+          docker run -d -p 8080:8080 --name myapp srinivasalug01/github-actions:latest
+          sleep 15
+          curl -f http://localhost:8080/test
+          curl -f http://localhost:8080/actuator/health
       
 
 
