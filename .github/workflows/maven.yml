@@ -41,5 +41,11 @@ jobs:
           docker rm -f myapp || true
           docker run -d -p 8080:8080 --name myapp srinivasalug01/github-actions:latest
           sleep 15
+          docker ps -a
+          if [ "$(docker inspect -f '{{.State.Running}}' myapp)" != "true" ]; then
+            echo "Container failed to start. Printing logs:"
+            docker logs myapp || true
+            exit 1
+          fi
           curl -f http://localhost:8080/test || true
           curl -f http://localhost:8080/actuator/health || true
