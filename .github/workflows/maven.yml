@@ -41,5 +41,5 @@ jobs:
           docker rm -f myapp || true
           docker run -d -p 8080:8080 --name myapp srinivasalug01/github-actions:latest
           sleep 15
-          curl -f http://localhost:8080/test1 || true
+          curl -f http://localhost:8080/test || true
           curl -f http://localhost:8080/actuator/health || true
