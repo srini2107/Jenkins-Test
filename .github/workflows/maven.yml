@@ -35,6 +35,12 @@ jobs:
           push: true
           tags: srinivasalug01/github-actions:latest
 
+      - name: Pull and run Docker image
+        run: |
+          docker pull srinivasalug01/github-actions:latest
+          docker run -d -p 8080:8080 --name myapp srinivasalug01/github-actions:latest
+          docker ps
+
 
 
 
